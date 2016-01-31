@@ -62,7 +62,7 @@ data <- rbind(data, data2, make.row.names=FALSE)
 data2 <- NULL
 
 # Make a copy of merged data in file 
-write.table(data, "./tidyDataset.txt") 
+write.table(data, "./tidyDataset.txt", row.name=FALSE) 
 
 # Compute the average of each variable for each activity and each subject
 dataAvg <- aggregate(data[,1:66],list(data$Activity,data$Subject),mean)
@@ -71,4 +71,4 @@ dataAvg <- aggregate(data[,1:66],list(data$Activity,data$Subject),mean)
 dataAvg <- rename(dataAvg, c("Group.1"="Activity", "Group.2"="Subject"))
 
 # Make a copy of merged data in file 
-write.table(dataAvg, "./averageTidyDataset.txt")
+write.table(dataAvg, "./averageTidyDataset.txt", row.name=FALSE)
